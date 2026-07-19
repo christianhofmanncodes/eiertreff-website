@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="de-DE">
+  <head>
+    <script>
+      window.FontAwesomeConfig = {
+        autoReplaceSvg: "nest",
+      };
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>Eiertreff - Echte Männer. Echte Treffen.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f97316",
+              ink: "#0d1117",
+              surface: "#161c27",
+              line: "#374151",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            keyframes: {
+              slideUp: {
+                "0%": { transform: "translateY(10px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+            animation: {
+              slideUp: "slideUp 0.6s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        background-color: #f97316;
+        color: #fff;
+      }
+      .btn-primary:hover {
+        filter: brightness(1.05);
+        transform: translateY(-1px);
+      }
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        background-color: transparent;
+        border: 1px solid #374151;
+        color: #fff;
+      }
+      .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      .nav-link {
+        position: relative;
+        padding-bottom: 4px;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #f97316;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+      .hero-title {
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+      .punchout {
+        color: #f97316;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 2px #f97316;
+        text-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+      }
+      .feature-card:hover i {
+        color: #f97316;
+        transform: scale(1.1);
+      }
+      .stat-number {
+        transition: color 0.3s ease;
+      }
+      .stat-item:hover .stat-number {
+        color: #f97316;
+      }
+      .timeline-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(to bottom, #f97316, #374151);
+      }
+    </style>
+  </head>
+  <body class="antialiased bg-ink text-white overflow-x-hidden">
+    <!-- Header -->
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 bg-ink border-b border-line/50 px-6 py-0"
+    >
+      <div class="max-w-7xl mx-auto flex items-center justify-between h-16">
+        <a
+          href="#"
+          class="flex items-center gap-2"
+        >
+          <div
+            class="w-9 h-9 rounded-full bg-surface border border-line flex items-center justify-center"
+          >
+            <i class="fas fa-egg text-primary text-sm"></i>
+          </div>
+          <span class="font-black text-xl tracking-tight text-white"
+            >EIER<span class="text-primary">TREFF</span></span
+          >
+        </a>
+
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+          <a
+            href="#"
+            class="nav-link active text-primary"
+            >Home</a
+          >
+          <a
+            href="#features"
+            class="nav-link hover:text-white transition-colors"
+            >Features</a
+          >
+          <a
+            href="#about"
+            class="nav-link hover:text-white transition-colors"
+            >Über uns</a
+          >
+          <a
+            href="#faq"
+            class="nav-link hover:text-white transition-colors"
+            >FAQ</a
+          >
+          <a
+            href="#"
+            class="nav-link hover:text-white transition-colors"
+            >Blog</a
+          >
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a
+            href="#download"
+            class="btn-primary text-sm"
+          >
+            App herunterladen
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-16">
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="bg-ink px-6 py-16 md:py-20"
+      >
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-8">
+            <h1 class="hero-title text-white">
+              ECHTE MÄNNER.<br />
+              ECHTE <span class="text-primary">TREFFEN.</span>
+            </h1>
+            <p class="text-lg text-gray-400 max-w-md leading-relaxed">
+              Eiertreff ist die Social Media App nur für Männer. Finde Gleichgesinnte, teile deine
+              Interessen und trefft euch im echten Leben.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#download"
+                class="btn-primary"
+              >
+                App herunterladen <i class="fas fa-arrow-right text-xs"></i>
+              </a>
+              <a
+                href="#about"
+                class="btn-secondary"
+              >
+                Mehr erfahren
+              </a>
+            </div>
+            <div class="flex gap-3 pt-2 flex-wrap">
+              <!-- App Store Badge -->
+              <a
+                href="#"
+                class="flex items-center gap-2 bg-black border border-gray-700 rounded-xl px-4 py-2 hover:border-gray-500 transition-colors"
+              >
+                <i class="fab fa-apple text-white text-2xl"></i>
+                <div>
+                  <div class="text-gray-400 text-xs leading-none">Laden im</div>
+                  <div class="text-white font-semibold text-sm">App Store</div>
+                </div>
+              </a>
+              <!-- Google Play Badge -->
+              <a
+                href="#"
+                class="flex items-center gap-2 bg-black border border-gray-700 rounded-xl px-4 py-2 hover:border-gray-500 transition-colors"
+              >
+                <i class="fab fa-google-play text-white text-xl"></i>
+                <div>
+                  <div class="text-gray-400 text-xs leading-none">JETZT BEI</div>
+                  <div class="text-white font-semibold text-sm">Google Play</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone Mockups -->
+          <div class="relative flex justify-center lg:justify-end h-[560px]">
+            <!-- Phone 1 - back left -->
+            <div
+              class="absolute left-0 top-0 w-[220px] h-[460px] bg-gray-900 border-2 border-gray-700 rounded-[2.5rem] shadow-2xl overflow-hidden z-10"
+              style="transform: rotate(-3deg) translateX(10px)"
+            >
+              <div class="w-full h-full bg-[#0d1117] flex flex-col p-4 gap-3">
+                <div class="flex justify-center pt-2 pb-1">
+                  <div class="flex items-center gap-1">
+                    <div
+                      class="w-5 h-5 rounded-full bg-surface border border-line flex items-center justify-center"
+                    >
+                      <i
+                        class="fas fa-egg text-primary"
+                        style="font-size: 8px"
+                      ></i>
+                    </div>
+                    <span class="font-black text-sm text-white"
+                      >EIER<span class="text-primary">TREFF</span></span
+                    >
+                  </div>
+                </div>
+                <div class="text-center">
+                  <p class="text-gray-400 text-xs">Vom Sofa. In die Wirklichkeit.</p>
+                </div>
+                <div class="flex-1 rounded-2xl overflow-hidden">
+                  <img
+                    class="w-full h-full object-cover"
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_69a51fde05_a59a928154314687.png"
+                    alt="group of men sitting around campfire at night, warm orange firelight, cinematic dark atmosphere"
+                  />
+                </div>
+                <a
+                  class="bg-primary text-white text-center py-2 rounded-xl text-sm font-bold tracking-wide"
+                  >REGISTRIEREN</a
+                >
+                <div
+                  class="bg-surface/60 border border-line text-white text-center py-2 rounded-xl text-sm font-semibold"
+                >
+                  LOGIN
+                </div>
+                <p class="text-gray-500 text-center text-xs">
+                  Nur für Männer. Kein Dating. Nur echte Treffen.
+                </p>
+              </div>
+            </div>
+            <!-- Phone 2 - front right -->
+            <div
+              class="absolute right-0 top-8 w-[230px] h-[490px] bg-gray-900 border-2 border-gray-700 rounded-[2.5rem] shadow-2xl overflow-hidden z-20"
+              style="transform: rotate(2deg)"
+            >
+              <div class="w-full h-full bg-[#0d1117] flex flex-col">
+                <!-- Status bar -->
+                <div class="flex justify-between items-center px-4 pt-3 pb-2">
+                  <span class="text-white text-xs font-bold">9:41</span>
+                  <div class="flex items-center gap-1">
+                    <i class="fas fa-signal text-white text-xs"></i>
+                    <i class="fas fa-wifi text-white text-xs"></i>
+                    <i class="fas fa-battery-full text-white text-xs"></i>
+                  </div>
+                </div>
+                <!-- Header -->
+                <div class="flex justify-between items-center px-4 pb-2">
+                  <span class="text-white font-bold text-base">Feed</span>
+                  <i class="far fa-bell text-gray-400"></i>
+                </div>
+                <!-- Tabs -->
+                <div class="flex gap-4 px-4 pb-2 border-b border-line">
+                  <span class="text-primary text-xs font-semibold border-b-2 border-primary pb-1"
+                    >Für dich</span
+                  >
+                  <span class="text-gray-500 text-xs">Folge ich</span>
+                </div>
+                <!-- Feed items -->
+                <div class="flex-1 overflow-hidden px-3 pt-2 space-y-3">
+                  <!-- Post 1 -->
+                  <div class="bg-surface rounded-xl p-2 space-y-2">
+                    <div class="flex items-center gap-2">
+                      <img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg"
+                        class="w-6 h-6 rounded-full object-cover"
+                      />
+                      <div>
+                        <p class="text-white text-xs font-semibold">Tom84</p>
+                        <p class="text-gray-500 text-xs">München</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-xs">
+                      Heute spontan eine Runde Fußball? Wer ist dabei?
+                    </p>
+                    <div class="h-20 rounded-lg overflow-hidden">
+                      <img
+                        class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_d41aa9f2fe_d12addfe7cf117d5.png"
+                        alt="football on grass field at sunset, sports action photography"
+                      />
+                    </div>
+                    <div class="flex gap-3 pt-1">
+                      <span class="text-gray-500 text-xs"><i class="far fa-heart mr-1"></i>23</span>
+                      <span class="text-gray-500 text-xs"
+                        ><i class="far fa-comment mr-1"></i>8</span
+                      >
+                    </div>
+                  </div>
+                  <!-- Post 2 -->
+                  <div class="bg-surface rounded-xl p-2 space-y-1">
+                    <div class="flex items-center gap-2">
+                      <img
+                        src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-3.jpg"
+                        class="w-6 h-6 rounded-full object-cover"
+                      />
+                      <div>
+                        <p class="text-white text-xs font-semibold">Basti87</p>
+                        <p class="text-gray-500 text-xs">4,3rd</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-xs">
+                      Neues Projekt in der Werkstatt! Alte Werkbank restaurieren.
+                    </p>
+                  </div>
+                </div>
+                <!-- Bottom nav -->
+                <div class="flex justify-around items-center px-4 py-2 border-t border-line">
+                  <i class="fas fa-home text-primary text-sm"></i>
+                  <i class="fas fa-users text-gray-500 text-sm"></i>
+                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <i class="fas fa-plus text-white text-xs"></i>
+                  </div>
+                  <i class="fas fa-calendar text-gray-500 text-sm"></i>
+                  <i class="fas fa-user text-gray-500 text-sm"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feature Cards -->
+      <section
+        id="features"
+        class="bg-surface/50 py-16 px-6"
+      >
+        <div
+          class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-0 divide-y md:divide-y-0 md:divide-x divide-line"
+        >
+          <div class="feature-card p-8 text-center space-y-4">
+            <i class="fas fa-users text-4xl text-primary transition-transform"></i>
+            <h3 class="text-base font-black uppercase tracking-widest text-white">NUR MÄNNER</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Diese App ist nur für echte Männer gemacht. Kein Dating. Keine Ablenkung.
+            </p>
+          </div>
+          <div class="feature-card p-8 text-center space-y-4">
+            <i class="fas fa-map-marker-alt text-4xl text-primary transition-transform"></i>
+            <h3 class="text-base font-black uppercase tracking-widest text-white">
+              LOKALE TREFFEN
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Finde Männer in deiner Nähe und trefft euch im echten Leben. Online war gestern.
+            </p>
+          </div>
+          <div class="feature-card p-8 text-center space-y-4">
+            <i class="fas fa-shield-alt text-4xl text-primary transition-transform"></i>
+            <h3 class="text-base font-black uppercase tracking-widest text-white">
+              SICHER &amp; RESPEKTVOLL
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Respektvoller Umgang und klare Regeln für eine Community, auf die du dich verlassen
+              kannst.
+            </p>
+          </div>
+          <div class="feature-card p-8 text-center space-y-4">
+            <i class="fas fa-fire text-4xl text-primary transition-transform"></i>
+            <h3 class="text-base font-black uppercase tracking-widest text-white">
+              GEMEINSAME INTERESSEN
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              Ob Grillen, Fußball oder Gaming – teile deine Leidenschaften und finde Gleichgesinnte.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section
+        id="about"
+        class="py-20 px-6 bg-ink"
+      >
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div class="relative rounded-3xl overflow-hidden h-[420px] group">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/gen_f4fe551099_657f3c59230ce9bd.png"
+              alt="cinematic dark moody photo of a group of men laughing together around a campfire at night, warm oran"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <!-- Logo overlay bottom-left -->
+            <div
+              class="absolute bottom-5 left-5 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-2xl px-3 py-2"
+            >
+              <div
+                class="w-7 h-7 rounded-full bg-surface border border-primary flex items-center justify-center"
+              >
+                <i class="fas fa-egg text-primary text-xs"></i>
+              </div>
+              <div>
+                <div class="font-black text-sm text-white">
+                  EIER<span class="text-primary">TREFF</span>
+                </div>
+                <div class="text-gray-400 text-xs">Vom Sofa. In die Wirklichkeit.</div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <span class="text-primary font-bold tracking-widest text-xs uppercase"
+              >Über Eiertreff</span
+            >
+            <h2 class="text-3xl lg:text-4xl font-black leading-tight text-white">
+              Wir bringen Männer zusammen – im echten Leben.
+            </h2>
+            <p class="text-gray-400 text-base leading-relaxed">
+              Eiertreff wurde entwickelt, um Männer wieder miteinander zu verbinden. Schluss mit
+              endlosem Scrollen und leeren Versprechen. Wir schaffen echte Erlebnisse, echte
+              Gespräche und echte Freundschaften.
+            </p>
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-full hover:brightness-105 transition-all"
+            >
+              Mehr über uns <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stat Strip -->
+      <section
+        id="stats"
+        class="bg-surface/40 border-y border-line py-12 px-6"
+      >
+        <div
+          class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-line"
+        >
+          <div class="stat-item flex items-center gap-4 px-8 py-6 cursor-default">
+            <i class="fas fa-users text-primary text-3xl flex-shrink-0"></i>
+            <div>
+              <div class="stat-number text-3xl font-black text-primary">10.000+</div>
+              <div class="text-sm text-gray-400">aktive Männer</div>
+            </div>
+          </div>
+          <div class="stat-item flex items-center gap-4 px-8 py-6 cursor-default">
+            <i class="fas fa-calendar-alt text-primary text-3xl flex-shrink-0"></i>
+            <div>
+              <div class="stat-number text-3xl font-black text-primary">2.500+</div>
+              <div class="text-sm text-gray-400">Treffen pro Monat</div>
+            </div>
+          </div>
+          <div class="stat-item flex items-center gap-4 px-8 py-6 cursor-default">
+            <i class="fas fa-user-friends text-primary text-3xl flex-shrink-0"></i>
+            <div>
+              <div class="stat-number text-3xl font-black text-primary">1.200+</div>
+              <div class="text-sm text-gray-400">Gruppen</div>
+            </div>
+          </div>
+          <div class="stat-item flex items-center gap-4 px-8 py-6 cursor-default">
+            <i class="fas fa-shield-check text-primary text-3xl flex-shrink-0"></i>
+            <div>
+              <div class="stat-number text-3xl font-black text-primary">100%</div>
+              <div class="text-sm text-gray-400">Männer. Respekt. Echt.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Download Section -->
+      <section
+        id="download"
+        class="bg-ink py-20 px-6 border-t border-line"
+      >
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-start">
+          <!-- Left: CTA -->
+          <div class="space-y-6">
+            <span class="text-primary font-bold tracking-widest text-xs uppercase"
+              >Bereit für echte Treffen?</span
+            >
+            <h2 class="text-3xl lg:text-4xl font-black text-white leading-tight">
+              Lade die App herunter und werde Teil der Community!
+            </h2>
+            <div class="flex gap-3 flex-wrap">
+              <a
+                href="#"
+                class="flex items-center gap-2 bg-black border border-gray-700 rounded-xl px-4 py-2 hover:border-gray-500 transition-colors"
+              >
+                <i class="fab fa-apple text-white text-2xl"></i>
+                <div>
+                  <div class="text-gray-400 text-xs leading-none">Laden im</div>
+                  <div class="text-white font-semibold text-sm">App Store</div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="flex items-center gap-2 bg-black border border-gray-700 rounded-xl px-4 py-2 hover:border-gray-500 transition-colors"
+              >
+                <i class="fab fa-google-play text-white text-xl"></i>
+                <div>
+                  <div class="text-gray-400 text-xs leading-none">JETZT BEI</div>
+                  <div class="text-white font-semibold text-sm">Google Play</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Steps -->
+          <div class="grid grid-cols-3 gap-6">
+            <div class="text-center space-y-3">
+              <div
+                class="w-14 h-14 rounded-2xl bg-surface border border-line flex items-center justify-center mx-auto"
+              >
+                <i class="fas fa-user-plus text-primary text-xl"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Registrieren</h4>
+              <p class="text-gray-400 text-xs leading-relaxed">
+                Erstelle dein Profil in wenigen Sekunden.
+              </p>
+            </div>
+            <div class="text-center space-y-3">
+              <div
+                class="w-14 h-14 rounded-2xl bg-surface border border-line flex items-center justify-center mx-auto"
+              >
+                <i class="fas fa-users text-primary text-xl"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Interessen wählen</h4>
+              <p class="text-gray-400 text-xs leading-relaxed">
+                Finde Gruppen und Themen, die zu dir passen.
+              </p>
+            </div>
+            <div class="text-center space-y-3">
+              <div
+                class="w-14 h-14 rounded-2xl bg-surface border border-line flex items-center justify-center mx-auto"
+              >
+                <i class="fas fa-calendar-check text-primary text-xl"></i>
+              </div>
+              <h4 class="font-bold text-white text-sm">Treffen &amp; erleben</h4>
+              <p class="text-gray-400 text-xs leading-relaxed">Mach aus Online echte Erlebnisse.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      id="footer"
+      class="bg-surface/30 border-t border-line pt-14 pb-8 px-6"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-10 mb-12">
+          <!-- Brand -->
+          <div class="space-y-4">
+            <a
+              href="#"
+              class="flex items-center gap-2"
+            >
+              <div
+                class="w-9 h-9 rounded-full bg-surface border border-line flex items-center justify-center"
+              >
+                <i class="fas fa-egg text-primary text-sm"></i>
+              </div>
+              <span class="font-black text-xl tracking-tight text-white"
+                >EIER<span class="text-primary">TREFF</span></span
+              >
+            </a>
+            <p class="text-gray-500 text-sm">Echte Männer. Echte Treffen.</p>
+          </div>
+
+          <!-- Navigation -->
+          <div class="space-y-4">
+            <h4 class="font-bold text-white text-sm">Navigation</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#features"
+                  class="hover:text-primary transition-colors"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  class="hover:text-primary transition-colors"
+                  >Über uns</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors"
+                  >Blog</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Rechtliches -->
+          <div class="space-y-4">
+            <h4 class="font-bold text-white text-sm">Rechtliches</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors"
+                  >Impressum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors"
+                  >Datenschutz</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-primary transition-colors"
+                  >AGB</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div class="space-y-4">
+            <h4 class="font-bold text-white text-sm">Folge uns</h4>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors text-xl"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors text-xl"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors text-xl"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-primary transition-colors text-xl"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-line pt-6 text-center text-xs text-gray-600">
+          <p>© 2024 Eiertreff. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
